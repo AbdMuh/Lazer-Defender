@@ -1,33 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
+
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Vector2 = UnityEngine.Vector2;
 
 public class PlayerMovement : MonoBehaviour
 {
     private Vector2 _velocityVector;
     private Vector2 _inputVector;
-    public float powerScaler;
-    private Rigidbody2D _rigidbody2D;
+    public float powerScalerX = 15f;
+    public float powerScalerY = 15f;
+    private Rigidbody2D _rb;
+    private Vector2 _minBound;
+    private Vector2 _maxBound;
+    private Camera _mainCamera;
+    public float paddingleft;
+    public float paddingright;
+    public float paddingtop;
+    public float paddingbottom;
+
     void Start()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _mainCamera = Camera.main;
+        InitBounds();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void InitBounds()
     {
-        Run();
+        _minBound = _mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
+        _maxBound = _mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
     }
-    private void Run()
-        {
-            _velocityVector = new Vector2(_inputVector.x * powerScaler , _rigidbody2D.velocity.y);
-            _rigidbody2D.velocity = _velocityVector;
-        }
-        void OnMove(InputValue inputValue)
-        {
-            _inputVector = inputValue.Get<Vector2>();
-        }
+
+    void FixedUpdate()
+    {
+        Moving();
+    }
+
+    private void Update()
+    {
+        ClampPosition();
+    }
+
+    private void Moving()
+    {
+        _velocityVector = new Vector2(_inputVector.x * powerScalerX, _inputVector.y * powerScalerY);
+        
+        _rb.velocity = _velocityVector;
+    }
+
+    private void ClampPosition()
+    {
+        Vector2 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, _minBound.x + paddingleft, _maxBound.x - paddingright);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, _minBound.y + paddingbottom, _maxBound.y - paddingtop);
+        transform.position = clampedPosition;
+    }
+
+    void OnMove(InputValue inputValue)
+    {
+        _inputVector = inputValue.Get<Vector2>();
+    }
 }

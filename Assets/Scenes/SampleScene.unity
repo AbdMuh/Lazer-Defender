@@ -378,6 +378,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3155582458192451792, guid: fcfba407f708c324cbf5b592a2d78ba7, type: 3}
+      propertyPath: paddingtop
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155582458192451792, guid: fcfba407f708c324cbf5b592a2d78ba7, type: 3}
+      propertyPath: paddingleft
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155582458192451792, guid: fcfba407f708c324cbf5b592a2d78ba7, type: 3}
+      propertyPath: paddingright
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155582458192451792, guid: fcfba407f708c324cbf5b592a2d78ba7, type: 3}
+      propertyPath: powerScalerX
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155582458192451792, guid: fcfba407f708c324cbf5b592a2d78ba7, type: 3}
+      propertyPath: powerScalerY
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155582458192451792, guid: fcfba407f708c324cbf5b592a2d78ba7, type: 3}
+      propertyPath: paddingbottom
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6180209075336753619, guid: fcfba407f708c324cbf5b592a2d78ba7, type: 3}
       propertyPath: m_Name
       value: Player
