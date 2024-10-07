@@ -161,12 +161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c110068eab3c845a38a7a4506026b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerScalerX: 11
-  powerScalerY: 11
-  paddingleft: 0
-  paddingright: 0
-  paddingtop: 0
-  paddingbottom: 0
+  powerScalerX: 10
+  powerScalerY: 10
+  paddingleft: 0.5
+  paddingright: 0.5
+  paddingtop: 2
+  paddingbottom: 1
 --- !u!50 &1752715310260487279
 Rigidbody2D:
   serializedVersion: 4
