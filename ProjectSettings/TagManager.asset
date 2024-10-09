@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3586037607
+    locked: 0
+  - name: Projectile
+    uniqueID: 1056126313
     locked: 0
   - name: Enemy
     uniqueID: 654188397

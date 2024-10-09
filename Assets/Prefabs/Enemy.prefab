@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6450679085616316100}
   - component: {fileID: 5726370533926359888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: enemy_ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 654188397
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6c90febaec185bf48b54282634eed366, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,7 +97,8 @@ GameObject:
   - component: {fileID: -218138384641105974}
   - component: {fileID: -8446167204113842305}
   - component: {fileID: 4417072038329565812}
-  m_Layer: 0
+  - component: {fileID: -3830981068968959109}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,3 +208,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageAmount: 10
+--- !u!114 &-3830981068968959109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4872083601865265392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aed99f3c8d86fd498908dcea6e964f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
