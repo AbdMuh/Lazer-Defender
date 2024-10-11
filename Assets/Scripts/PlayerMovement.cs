@@ -18,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     public float paddingtop;
     public float paddingbottom;
 
+    private Shooter _shooter;
+
+    private void Awake()
+    {
+        _shooter = GetComponent<Shooter>();
+    }
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -59,5 +66,10 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue inputValue)
     {
         _inputVector = inputValue.Get<Vector2>();
+    }
+
+    void OnFire(InputValue value)
+    {
+        _shooter.isFiring = value.isPressed;
     }
 }
