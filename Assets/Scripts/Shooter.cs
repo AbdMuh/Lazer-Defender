@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 using Unity.Mathematics;
@@ -5,13 +6,27 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private float projectileLifeTime = 5f;
-    [SerializeField] private float firingRate;
-    public bool isFiring;
+
+     [Header("EnemyAI")]
+
+      [SerializeField] private bool EnemyShooter;
+    [SerializeField] private float firingRateVariance = 0f;
+    [SerializeField] private float baseFiringRate = 0.2f;
+    [SerializeField] private float minimumFiringRate = 0.2f;
+    
+    [HideInInspector]public bool isFiring;
     private Coroutine _fireCoroutine;
     private Rigidbody2D _rb;
+
+    void Start(){
+        if(EnemyShooter){
+            isFiring = true;
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,7 +59,9 @@ public class Shooter : MonoBehaviour
             {
                 _rb.velocity = transform.up * projectileSpeed;
             }
-            yield return new WaitForSeconds(firingRate);
+          float firingtime = UnityEngine.Random.Range(baseFiringRate - firingRateVariance, baseFiringRate + firingRateVariance);
+           firingtime = Mathf.Clamp(firingtime, minimumFiringRate, float.MaxValue);
+            yield return new WaitForSeconds(firingtime);
             Destroy(instance,projectileLifeTime);
         }
     }
